@@ -3,7 +3,7 @@
 
 ## Feito por :
 # Descrição:
-Esse projeto foi feito para orientar o jogador durante a sua experiencia durante a GamePlay do jogo Ice Climbers de 1984 sendo feito pela plataforama da Nintendo 
+Esse projeto foi feito para orientar o jogador durante a sua experiencia durante a GamePlay do jogo Ice Climbers de 1984 sendo feito pela plataforma da Nintendo 
 # Widgets 
 
 # Mapa de Tela
