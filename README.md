@@ -1,14 +1,9 @@
-# Nome do Projeto:
-<h2>Friagem</h2>
+# Nome do Projeto:"Friagem"
 
 ## Feito por :
 # Descrição:
 Esse projeto foi feito para orientar o jogador durante a sua experiencia durante a GamePlay do jogo Ice Climbers de 1984 sendo feito pela plataforma da Nintendo 
-# Widgets 
-# Text
-# Image
-# Container
-# Button
+# <a href ="https://github.com/lucasnoelgb/Ice-Climber/wiki/Widgets ">Widgets 
 # <a href = https://github.com/lucasnoelgb/Ice-Climber/wiki/Prototipo-do-site >Prototipo do Site
 
 # Mapa de Navegação 
