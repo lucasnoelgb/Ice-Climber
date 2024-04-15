@@ -1,6 +1,8 @@
 # Nome do Projeto:"Friagem"
 
-## Feito por :
+## Feito por 
+Lucas Noel 
+Isabella Coreia
 # Descrição:
 Esse projeto foi feito para orientar o jogador durante a sua experiencia durante a GamePlay do jogo Ice Climbers de 1984 sendo feito pela plataforma da Nintendo 
  ## <a href ="https://github.com/lucasnoelgb/Ice-Climber/wiki/Widgets ">Widgets 
