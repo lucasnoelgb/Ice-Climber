@@ -1,7 +1,7 @@
 # Nome do Projeto:"Friagem"
 
 ## Feito por 
-Lucas Noel<br>
+Lucas Noel Gomes Batista
 
 
 # Descrição:
