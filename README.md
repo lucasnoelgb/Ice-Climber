@@ -11,6 +11,7 @@ Esse projeto foi feito para orientar o jogador durante a sua experiencia durante
 
 # Links da Wiki
 - <a href ="https://github.com/lucasnoelgb/Ice-Climber/wiki/video">Video
+- <a href="https://github.com/lucasnoelgb/Ice-Climber/wiki/Codigo-usado">Codigo ultilizado
 - <a href ="https://github.com/lucasnoelgb/Ice-Climber/wiki/Como-%C3%A9-o-jogo">Como é o Jogo
  - <a href ="https://github.com/lucasnoelgb/Ice-Climber/wiki/Widgets ">Widgets 
  - <a href = https://github.com/lucasnoelgb/Ice-Climber/wiki/Prototipo-do-site >Prototipo do Site
