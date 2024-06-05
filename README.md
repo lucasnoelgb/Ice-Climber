@@ -2,6 +2,8 @@
 
 ## Feito por 
 Lucas Noel Gomes Batista
+Gabriel Toledo 
+
 
 
 # Descrição:
