@@ -2,7 +2,7 @@
 
 ## Feito por 
 Lucas Noel Gomes Batista<br>
-Gabriel Toledo 
+ 
 
 
 
