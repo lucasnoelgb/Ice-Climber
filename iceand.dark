@@ -1,381 +1,377 @@
-        import 'package:flutter/material.dart';
-        import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-        void main() {
-          runApp(IceClimbersApp());
-        }
+void main() {
+  runApp(IceClimbersApp());
+}
 
-        class IceClimbersApp extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return MaterialApp(
-              title: 'Ice Climbers Guide',
-              theme: ThemeData(
-                primaryColor: Colors.lightBlueAccent, // Definindo a cor da appbar
-                appBarTheme: AppBarTheme(
-                  color: Colors.lightBlueAccent, // Definindo a cor da appbar
-                ),
-                visualDensity: VisualDensity.adaptivePlatformDensity,
+class IceClimbersApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Ice Climbers Guide',
+      theme: ThemeData(
+        primaryColor: Colors.lightBlueAccent,
+        appBarTheme: AppBarTheme(
+          color: Colors.lightBlueAccent,
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ice Climbers Guide'),
+      ),
+      drawer: AppDrawer(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Bem-vindo ao guia Ice Climbers!',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              home: HomePage(),
-            );
-          }
-        }
-
-        class HomePage extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text('Ice Climbers Guide'),
+              SizedBox(height: 20),
+              Text(
+                'Navegue pelo menu para aprender mais sobre o jogo, '
+                'personagens, fases e dicas úteis.',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
               ),
-              drawer: AppDrawer(),
-              body: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Bem-vindo ao guia Ice Climbers!',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        'Navegue pelo menu para aprender mais sobre o jogo, '
-                        'personagens, fases e dicas úteis.',
-                        style: TextStyle(fontSize: 16),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
+            ],
+          ),
+        ),
+      ),
+      backgroundColor: Color(0xFFB3E5FC),
+    );
+  }
+}
+
+class AppDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Ice Climbers Guide',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
               ),
-              backgroundColor: Color(0xFFB3E5FC), // Azul bebê
-            );
-          }
-        }
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Início'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.book),
+            title: Text('Guia'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GuidePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Personagens'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CharactersPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.map),
+            title: Text('Fases'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => StagesPage()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-        class AppDrawer extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return Drawer(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                    ),
-                    child: Text(
-                      'Ice Climbers Guide',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Início'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      );
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text('Guia'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => GuidePage()),
-                      );
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text('Personagens'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CharactersPage()),
-                      );
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.map),
-                    title: Text('Fases'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => StagesPage()),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            );
-          }
-        }
+class GuidePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Guia do Jogo'),
+      ),
+      drawer: AppDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Text(
+              'Guia do Jogo',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Ice Climbers é um jogo de plataforma desenvolvido pela Nintendo. '
+              'O objetivo é escalar uma montanha, enfrentando inimigos e superando obstáculos. '
+              'Aqui estão algumas dicas e informações para ajudá-lo a começar:',
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 20),
+            InfoCard(
+              title: 'História do Jogo',
+              content:
+                  'Ice Climbers foi lançado originalmente em 1985 para o Nintendo Entertainment System (NES). '
+                  'Você controla Popo e Nana, dois alpinistas que usam martelos para subir montanhas geladas e derrotar inimigos.',
+            ),
+            InfoCard(
+              title: 'Como Jogar',
+              content:
+                  'Você deve guiar Popo e Nana até o topo da montanha, quebrando blocos de gelo e evitando inimigos como ursos polares e pássaros. '
+                  'Cada montanha tem oito camadas que você deve atravessar.',
+            ),
+            InfoCard(
+              title: 'Dicas Úteis',
+              content:
+                  '1. Use os martelos para quebrar blocos e derrotar inimigos.\n'
+                  '2. Aprenda os padrões de movimento dos inimigos para evitá-los.\n'
+                  '3. Colete vegetais para ganhar pontos extras.\n'
+                  '4. Trabalhe em equipe se estiver jogando no modo cooperativo.',
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Color(0xFFB3E5FC),
+    );
+  }
+}
 
-        class GuidePage extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text('Guia do Jogo'),
-              ),
-              drawer: AppDrawer(),
-              body: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ListView(
-                  children: [
-                    Text(
-                      'Guia do Jogo',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Ice Climbers é um jogo de plataforma desenvolvido pela Nintendo. '
-                      'O objetivo é escalar uma montanha, enfrentando inimigos e superando obstáculos. '
-                      'Aqui estão algumas dicas e informações para ajudá-lo a começar:',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(height: 20),
-                    InfoCard(
-                      title: 'História do Jogo',
-                      content:
-                          'Ice Climbers foi lançado originalmente em 1985 para o Nintendo Entertainment System (NES). '
-                          'Você controla Popo e Nana, dois alpinistas que usam martelos para subir montanhas geladas e derrotar inimigos.',
-                    ),
-                    InfoCard(
-                      title: 'Como Jogar',
-                      content:
-                          'Você deve guiar Popo e Nana até o topo da montanha, quebrando blocos de gelo e evitando inimigos como ursos polares e pássaros. '
-                          'Cada montanha tem oito camadas que você deve atravessar.',
-                    ),
-                    InfoCard(
-                      title: 'Dicas Úteis',
-                      content:
-                          '1. Use os martelos para quebrar blocos e derrotar inimigos.\n'
-                          '2. Aprenda os padrões de movimento dos inimigos para evitá-los.\n'
-                          '3. Colete vegetais para ganhar pontos extras.\n'
-                          '4. Trabalhe em equipe se estiver jogando no modo cooperativo.',
-                    ),
-                  ],
-                ),
-              ),
-              backgroundColor: Color(0xFFB3E5FC), // Azul bebê
-            );
-          }
-        }
+class CharactersPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Personagens'),
+      ),
+      drawer: AppDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Text(
+              'Personagens',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            CharacterCard(
+              title: 'Popo',
+              content: 'Popo é o personagem principal e veste um casaco azul. '
+                  'Ele é o alpinista que você controla no jogo.',
+              imagePath:
+                  'https://i.pinimg.com/originals/7a/37/8f/7a378f97833a2c946d099ed3455c9e21.jpg',
+            ),
+            CharacterCard(
+              title: 'Nana',
+              content:
+                  'Nana é o segundo personagem jogável, vestindo um casaco rosa. '
+                  'Ela pode ser controlada por um segundo jogador no modo cooperativo.',
+              imagePath:
+                  'https://i.pinimg.com/originals/49/67/31/49673108be345d4365897b09d6616955.jpg',
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Color(0xFFB3E5FC),
+    );
+  }
+}
 
-        class CharactersPage extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text('Personagens'),
-              ),
-              drawer: AppDrawer(),
-              body: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ListView(
-                  children: [
-                    Text(
-                      'Personagens',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 20),
-                    CharacterCard(
-                      title: 'Popo',
-                      content: 'Popo é o personagem principal e veste um casaco azul. '
-                          'Ele é o alpinista que você controla no jogo.',
-                      imagePath:
-                          'https://i.pinimg.com/originals/7a/37/8f/7a378f97833a2c946d099ed3455c9e21.jpg',
-                    ),
-                    CharacterCard(
-                      title: 'Nana',
-                      content:
-                          'Nana é o segundo personagem jogável, vestindo um casaco rosa. '
-                          'Ela pode ser controlada por um segundo jogador no modo cooperativo.',
-                      imagePath:
-                          'https://i.pinimg.com/originals/49/67/31/49673108be345d4365897b09d6616955.jpg',
-                    ),
-                  ],
-                ),
-              ),
-              backgroundColor: Color(0xFFB3E5FC), // Azul bebê
-            );
-          }
-        }
+class StagesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fases'),
+      ),
+      drawer: AppDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Text(
+              'Fases',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            StageCard(
+              title: 'Montanha 1',
+              content:
+                  'A primeira montanha é a mais simples, projetada para introduzir os jogadores ao jogo.',
+              imagePath:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnLAVWfvhCBkk3AH_6Wb7wOgXtMMDTIZjvu5pYyVmDepRnmb4P3gIVkElcWwhW6Egeec&usqp=CAU',
+            ),
+            StageCard(
+              title: 'Montanha 2',
+              content:
+                  'A segunda montanha é um pouco mais desafiadora, com novos inimigos e obstáculos.',
+              imagePath:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7QDhQguCEXCSVs13aS7O9Ks3myRaQAUUww&s',
+            ),
+            StageCard(
+              title: 'Montanha 3',
+              content:
+                  'A terceira montanha apresenta um desafio significativo, exigindo boa coordenação e tempo de reação.',
+              imagePath:
+                  'https://i0.wp.com/bossrush.net/wp-content/uploads/2023/05/image-31.png?resize=446%2C401&ssl=1',
+            ),
+            StageCard(
+              title: 'Montanha 4',
+              content:
+                  'A quarta montanha introduz ventos fortes que empurram os jogadores, tornando a escalada mais difícil.',
+              imagePath:
+                  'https://gamehall.com.br/wp-content/uploads/2012/10/ice-climber-2-player-mode-NES-nintendo_27-10-2012.png',
+            ),
+            StageCard(
+              title: 'Montanha 5',
+              content:
+                  'A quinta montanha tem inimigos que aparecem com maior frequência e plataformas instáveis.',
+              imagePath:
+                  'https://bdjogos.com.br/fotos/2081-ice-climber-5.png', // Coloque o link da imagem aqui
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Color(0xFFB3E5FC),
+    );
+  }
+}
 
-        class StagesPage extends StatelessWidget {
-          @override
-          Widget build(BuildContext context) {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text('Fases'),
-              ),
-              drawer: AppDrawer(),
-              body: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ListView(
-                  children: [
-                    Text(
-                      'Fases',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 20),
-                    StageCard(
-                      title: 'Montanha 1',
-                      content:
-                          'A primeira montanha é a mais simples, projetada para introduzir os jogadores ao jogo.',
-                      imagePath:
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnLAVWfvhCBkk3AH_6Wb7wOgXtMMDTIZjvu5pYyVmDepRnmb4P3gIVkElcWwhW6Egeec&usqp=CAU',
-                    ),
-                    StageCard(
-                      title: 'Montanha 2',
-                      content:
-                          'A segunda montanha é um pouco mais desafiadora, com novos inimigos e obstáculos.',
-                      imagePath:
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7QDhQguCEXCSVs13aS7O9Ks3myRaQAUUww&s',
-                    ),
-                    StageCard(
-                      title: 'Montanha 3',
-                      content:
-                          'A terceira montanha apresenta um desafio significativo, exigindo boa coordenação e tempo de reação.',
-                      imagePath:
-                          'https://i0.wp.com/bossrush.net/wp-content/uploads/2023/05/image-31.png?resize=446%2C401&ssl=1',
-                    ),
-                  ],
-                ),
-              ),
-              backgroundColor: Color(0xFFB3E5FC), // Azul bebê
-            );
-          }
-        }
+class InfoCard extends StatelessWidget {
+  final String title;
+  final String content;
 
-        class InfoCard extends StatelessWidget {
-          final String title;
-          final String content;
+  InfoCard({required this.title, required this.content});
 
-          InfoCard({required this.title, required this.content});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              content,
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-          @override
-          Widget build(BuildContext context) {
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      content,
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-        }
+class CharacterCard extends StatelessWidget {
+  final String title;
+  final String content;
+  final String imagePath;
 
-        class CharacterCard extends StatelessWidget {
-          final String title;
-          final String content;
-          final String imagePath;
+  CharacterCard(
+      {required this.title, required this.content, required this.imagePath});
 
-          CharacterCard(
-              {required this.title, required this.content, required this.imagePath});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Image.network(imagePath, height: 150),
+            SizedBox(height: 10),
+            Text(
+              content,
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-          @override
-          Widget build(BuildContext context) {
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Image.network(
-                      imagePath,
-                      width: 100,
-                      height: 100,
-                    ),
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            content,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-        }
+class StageCard extends StatelessWidget {
+  final String title;
+  final String content;
+  final String imagePath;
 
-        class StageCard extends StatelessWidget {
-          final String title;
-          final String content;
-          final String imagePath;
+  StageCard(
+      {required this.title, required this.content, required this.imagePath});
 
-          StageCard(
-              {required this.title, required this.content, required this.imagePath});
-
-          @override
-          Widget build(BuildContext context) {
-            return Card(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Image.network(
-                      imagePath,
-                      width: 100,
-                      height: 100,
-                    ),
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            content,
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-        }
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Image.network(imagePath, height: 150),
+            SizedBox(height: 10),
+            Text(
+              content,
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
